@@ -33,7 +33,7 @@ cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   inversematrix <- x$getinverse()
   if (!is.null(inversematrix)) {
-    message("getting cached inverse matrix")
+    message("getting inverse from cache")
     return(inversematrix)
   }
   y <- x$getMatrix()
@@ -46,9 +46,9 @@ cacheSolve <- function(x, ...) {
 example.matrix <- matrix(c(5:8),2,2)
 
 test.function <- makeCacheMatrix(example.matrix)
-cacheSolve(test.function) #inverse returned after computation, no message 
+cacheSolve(test.function) #Goes to computation because cache is not available
 
-cacheSolve(test.function) #inverse returned from cache and message is printed here
+cacheSolve(test.function) #returns inverse from cache
 
 test.function2 <- makeCacheMatrix(-example.matrix)
 cacheSolve(test.function)
